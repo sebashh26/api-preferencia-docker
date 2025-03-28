@@ -1,0 +1,25 @@
+server:
+  port: 8081
+
+url:
+  api:
+    persona: http://${url_apipersona:localhost}:${port_apipersona:8080}/api/personas/
+
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: none
+      naming: 
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  datasource:
+    url: jdbc:mysql://${host:localhost}:${port:3306}/${database:demobd}?useUnicode=true&characterEncoding=utf8&useSSL=false&requireSSL=false
+    username: root
+    password: ${password:12345678}
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: true
